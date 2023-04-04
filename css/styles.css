@@ -19,10 +19,13 @@ div.calculator {
     height: 150px;
 }
 
-input.form-control {
-    height: 150px;
-    font-size: 5rem;
+.calculator-screen p {
+    font-size: 4.5rem;
+    text-overflow: ellipsis;
+    overflow-x: auto;
 }
+
+
 
 button.btn {
     background-color: #FFA559;
