@@ -1,0 +1,58 @@
+body {
+    background-color: #454545;
+}
+
+div.calculator {
+    background-color: #FFE6C7;
+    border-radius: 25px;
+    width: 400px;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.calculator-screen {
+    background-color: white;
+    border-radius: 25px;
+    height: 150px;
+}
+
+input.form-control {
+    height: 150px;
+    font-size: 5rem;
+}
+
+button.btn {
+    background-color: #FFA559;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+}
+
+button.btn.zero {
+    width: 170px;
+    border-radius: 19%;
+}
+
+button.btn:hover {
+    background-color: #FF6000;
+}
+
+
+div.col {
+    padding: 0 0;
+    text-align: center;
+}
+
+.pressed {
+    box-shadow: 0 0 20px black;
+    background-color: grey;
+}
+
+input {
+    white-space: nowrap;
+    overflow-x: scroll;
+    text-overflow: ellipsis;
+}
