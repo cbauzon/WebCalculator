@@ -3,6 +3,7 @@ var op1 = 0;
 var op2 = 0;
 var operator;
 var currOp = ""
+var finished = 0;
 
 
 /* Helper Functions */
@@ -19,6 +20,10 @@ $("button").click(function (e) {
     let char = e.target.innerText;
 
     if (char >= "0" && char <= "9" || char === ".") {
+        if (finished) {
+            currOp = "";
+            finished = 0;
+        }
         currOp += char;
         $("#input").text(currOp);
     } else {
@@ -90,6 +95,7 @@ $("button").click(function (e) {
                 currOp = String(res);
                 $("#input").text(currOp);
                 op1 = op2 = 0;
+                finished = 1;
                 break;
 
             default:
