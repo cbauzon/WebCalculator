@@ -19,8 +19,8 @@ $("button").click(function (e) {
     let char = e.target.innerText;
 
     if (char >= "0" && char <= "9" || char === ".") {
-        $("#input").text(currOp + e.target.innerText);
-        currOp += e.target.innerText;
+        currOp += char;
+        $("#input").text(currOp);
     } else {
         switch (char) {
             case "AC":
@@ -87,7 +87,9 @@ $("button").click(function (e) {
             case "=":
                 op2 = Number(currOp);
                 let res = calc(op1, op2, operator)
-                $("#input").text(String(res));
+                currOp = String(res);
+                $("#input").text(currOp);
+                op1 = op2 = 0;
                 break;
 
             default:
@@ -98,6 +100,9 @@ $("button").click(function (e) {
     
 });
 
+/* After calc:
+    1) if different number pressed, start building currOp again
+    2) if operation is pressed, set currOp to be op1
 
 /* Basic arithmetic operations */
 function calc(op1, op2, operator) {
