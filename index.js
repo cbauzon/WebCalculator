@@ -1,4 +1,3 @@
-
 /* Global Vars */
 var toEval = ""
 var currOp = "";
@@ -13,7 +12,7 @@ function animatePress(button) {
     }, 250);
 }
 
-/* Event Listeners */
+/* Event Listener */
 $("button").click(function (e) { 
     animatePress(this);
     let char = e.target.innerText;
@@ -80,16 +79,6 @@ $("button").click(function (e) {
         }
     }
 
-    
-
-    
-
-
-
-
-        // toEval += currOp;
-        // currOp = "";
-        // console.log(toEval);
     
 });
 
