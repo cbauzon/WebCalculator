@@ -21,11 +21,9 @@ div.calculator {
 
 .calculator-screen p {
     font-size: 4.5rem;
-    text-overflow: ellipsis;
-    overflow-x: auto;
+    text-overflow: "";
+    overflow-x: hidden;
 }
-
-
 
 button.btn {
     background-color: #FFA559;
