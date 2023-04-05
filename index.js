@@ -32,13 +32,25 @@ $("button").click(function (e) {
         $("#input").text(currOp);
 
     } else if (char === "+/-") {
-        currOp = String(Number(currOp) * -1);
-        $("#input").text(currOp);
+        if (!currOp){
+            toEval = String(Number(toEval) * -1);
+            $("#input").text(toEval);
+
+        } else {
+            currOp = String(Number(currOp) * -1);
+            $("#input").text(currOp);
+
+        }
 
     } else if (char === "%") {
-        currOp = String(Number(currOp) / 100);
-        $("#input").text(currOp);
+        if (!currOp) {
+            toEval = String(Number(toEval) / 100);
+            $("#input").text(toEval);    
+        } else {
+            currOp = String(Number(currOp) / 100);
+            $("#input").text(currOp);
 
+        }
     } else {
         toEval += currOp;
         currOp = "";
@@ -47,17 +59,19 @@ $("button").click(function (e) {
             case "-":
             case "+":
                 toEval += char;
+                finished = 0
                 break;
             
             case "x":
                 toEval += "*";
+                finished = 0;
                 break;
 
             case "=":
                 console.log(toEval);
                 let res = eval(toEval);
-                $("#input").text(res);
-                toEval = res;
+                toEval = String(res);
+                $("#input").text(toEval);
                 finished = 1;
                 break;
             default:
