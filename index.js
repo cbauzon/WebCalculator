@@ -37,28 +37,34 @@ $("button").click(function (e) {
         $("#input").text(currOp);
 
     } else if (char === "+/-" && toEval) {
-        if (!currOp){
-            toEval = String(Number(toEval) * -1);
-            $("#input").text(toEval);
-
-        } else {
-            currOp = String(Number(currOp) * -1);
-            toEval = currOp;    
-            $("#input").text(currOp);
-
+        if (!ops.includes(toEval.slice(-1))) {
+            if (!currOp){
+                toEval = String(Number(toEval) * -1);
+                $("#input").text(toEval);
+    
+            } else {
+                currOp = String(Number(currOp) * -1);
+                toEval = currOp;    
+                $("#input").text(currOp);
+    
+            }
         }
+        
 
 
     } else if (char === "%" && toEval) {
-        if (!currOp) {
-            toEval = String(Number(toEval) / 100);
-            $("#input").text(toEval);    
-        } else {
-            currOp = String(Number(currOp) / 100);
-            toEval = currOp;
-            $("#input").text(currOp);
-
+        if (!ops.includes(toEval.slice(-1))) {
+            if (!currOp) {
+                toEval = String(Number(toEval) / 100);
+                $("#input").text(toEval);    
+            } else {
+                currOp = String(Number(currOp) / 100);
+                toEval = currOp;
+                $("#input").text(currOp);
+    
+            }
         }
+        
     } else {
         currOp = "";
         // console.log(toEval.charAt(toEval.length - 1));
@@ -67,7 +73,7 @@ $("button").click(function (e) {
                 case "/":
                 case "-":
                 case "+":
-                    if (ops.includes(toEval.charAt(toEval.length - 1))) {
+                    if (ops.includes(toEval.slice(-1))) {
                         toEval = toEval.slice(0, -1);
                     }
                     toEval += char;
@@ -75,7 +81,7 @@ $("button").click(function (e) {
                     break;
                 
                 case "x":
-                    if (ops.includes(toEval.charAt(toEval.length - 1))) {
+                    if (ops.includes(toEval.slice(-1))) {
                         toEval = toEval.slice(0, -1);
                     }
                     toEval += "*";
@@ -89,7 +95,7 @@ $("button").click(function (e) {
                     $("#input").text(toEval);
                     finished = 1;
                     break;
-                    
+
                 default:
                     console.log("Invalid input! How'd you do that?");
                     break;
