@@ -31,7 +31,6 @@ $("button").click(function (e) {
     } else if (char === "AC") {
         toEval = currOp = "";
         $("#input").text(currOp);
-        $("#rolling-input").text(toEval)
 
     } else if (char === "+/-") {
         if (!currOp){
@@ -83,7 +82,7 @@ $("button").click(function (e) {
                 break;
         }
     }
-    $("#rolling-input").text(toEval)
+    $("#rolling-input").text(toEval);
     
 });
 
