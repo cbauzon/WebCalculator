@@ -35,7 +35,7 @@ $("button").click(function (e) {
         toEval = currOp = "";
         $("#input").text(currOp);
 
-    } else if (char === "+/-") {
+    } else if (char === "+/-" && toEval) {
         if (!currOp){
             toEval = String(Number(toEval) * -1);
             $("#input").text(toEval);
@@ -48,7 +48,7 @@ $("button").click(function (e) {
         }
 
 
-    } else if (char === "%") {
+    } else if (char === "%" && toEval) {
         if (!currOp) {
             toEval = String(Number(toEval) / 100);
             $("#input").text(toEval);    
@@ -60,30 +60,33 @@ $("button").click(function (e) {
         }
     } else {
         currOp = "";
-        switch (char) {
-            case "/":
-            case "-":
-            case "+":
-                toEval += char;
-                finished = 0
-                break;
-            
-            case "x":
-                toEval += "*";
-                finished = 0;
-                break;
-
-            case "=":
-                console.log(toEval);
-                let res = eval(toEval);
-                toEval = String(res);
-                $("#input").text(toEval);
-                finished = 1;
-                break;
-            default:
-                console.log("Invalid input! How'd you do that?");
-                break;
+        if (toEval) {
+            switch (char) {
+                case "/":
+                case "-":
+                case "+":
+                    toEval += char;
+                    finished = 0
+                    break;
+                
+                case "x":
+                    toEval += "*";
+                    finished = 0;
+                    break;
+    
+                case "=":
+                    console.log(toEval);
+                    let res = eval(toEval);
+                    toEval = String(res);
+                    $("#input").text(toEval);
+                    finished = 1;
+                    break;
+                default:
+                    console.log("Invalid input! How'd you do that?");
+                    break;
+            }
         }
+        
     }
     $("#rolling-input").text(toEval);
     
