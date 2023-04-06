@@ -36,23 +36,21 @@ $("button").click(function (e) {
         toEval = currOp = "";
         $("#input").text(currOp);
 
-    } else if (char === "+/-" && toEval) {
-        if (!ops.includes(toEval.slice(-1))) {
-            if (!currOp){
-                toEval = String(Number(toEval) * -1);
-                $("#input").text(toEval);
-    
-            } else {
-                currOp = String(Number(currOp) * -1);
-                toEval = currOp;    
-                $("#input").text(currOp);
-    
-            }
+    } else if (char === "+/-" && toEval && !ops.includes(toEval.slice(-1))) {
+        if (!currOp){
+            toEval = String(Number(toEval) * -1);
+            $("#input").text(toEval);
+
+        } else {
+            currOp = String(Number(currOp) * -1);
+            toEval = currOp;    
+            $("#input").text(currOp);
+
         }
         
 
 
-    } else if (char === "%" && toEval) {
+    } else if (char === "%" && toEval && !ops.includes(toEval.slice(-1))) {
         if (!ops.includes(toEval.slice(-1))) {
             if (!currOp) {
                 toEval = String(Number(toEval) / 100);
