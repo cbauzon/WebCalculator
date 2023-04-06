@@ -23,10 +23,13 @@ $("button").click(function (e) {
             toEval = "";
             finished = 0;
         }
-        currOp += char;
-        toEval += char;
-        $("#input").text(currOp);
 
+        // if currOp empty and input is 0, dont add else add
+        if (currOp || char != "0") {
+            currOp += char;
+            toEval += char;
+            $("#input").text(currOp);
+        }
 
     } else if (char === "AC") {
         toEval = currOp = "";
