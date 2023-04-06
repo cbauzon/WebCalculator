@@ -61,28 +61,35 @@ $("button").click(function (e) {
         }
     } else {
         currOp = "";
-        console.log(toEval.charAt(toEval.length - 1));
-        if (toEval && !ops.includes(toEval.charAt(toEval.length - 1))) {
+        // console.log(toEval.charAt(toEval.length - 1));
+        if (toEval) {
             switch (char) {
                 case "/":
                 case "-":
                 case "+":
+                    if (ops.includes(toEval.charAt(toEval.length - 1))) {
+                        toEval = toEval.slice(0, -1);
+                    }
                     toEval += char;
                     finished = 0
                     break;
                 
                 case "x":
+                    if (ops.includes(toEval.charAt(toEval.length - 1))) {
+                        toEval = toEval.slice(0, -1);
+                    }
                     toEval += "*";
                     finished = 0;
                     break;
     
                 case "=":
-                    console.log(toEval);
+                    // console.log(toEval);
                     let res = eval(toEval);
                     toEval = String(res);
                     $("#input").text(toEval);
                     finished = 1;
                     break;
+                    
                 default:
                     console.log("Invalid input! How'd you do that?");
                     break;
