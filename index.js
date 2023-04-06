@@ -24,11 +24,14 @@ $("button").click(function (e) {
             finished = 0;
         }
         currOp += char;
+        toEval += char;
         $("#input").text(currOp);
+
 
     } else if (char === "AC") {
         toEval = currOp = "";
         $("#input").text(currOp);
+        $("#rolling-input").text(toEval)
 
     } else if (char === "+/-") {
         if (!currOp){
@@ -37,9 +40,11 @@ $("button").click(function (e) {
 
         } else {
             currOp = String(Number(currOp) * -1);
+            toEval = currOp;    
             $("#input").text(currOp);
 
         }
+
 
     } else if (char === "%") {
         if (!currOp) {
@@ -47,11 +52,11 @@ $("button").click(function (e) {
             $("#input").text(toEval);    
         } else {
             currOp = String(Number(currOp) / 100);
+            toEval = currOp;
             $("#input").text(currOp);
 
         }
     } else {
-        toEval += currOp;
         currOp = "";
         switch (char) {
             case "/":
@@ -78,7 +83,7 @@ $("button").click(function (e) {
                 break;
         }
     }
-
+    $("#rolling-input").text(toEval)
     
 });
 
