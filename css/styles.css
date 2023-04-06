@@ -19,10 +19,15 @@ div.calculator {
     height: 150px;
 }
 
-.calculator-screen p {
-    font-size: 4.5rem;
+#input {
+    font-size: 3.5rem;
     text-overflow: "";
-    overflow-x: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+#rolling-input {
+    font-size: 1.5rem;
 }
 
 button.btn {
@@ -51,10 +56,4 @@ div.col {
 .pressed {
     box-shadow: 0 0 20px black;
     background-color: grey;
-}
-
-input {
-    white-space: nowrap;
-    overflow-x: scroll;
-    text-overflow: ellipsis;
 }
