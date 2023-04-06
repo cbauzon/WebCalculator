@@ -2,6 +2,7 @@
 var toEval = ""
 var currOp = "";
 var finished = 0;
+const ops = ["+", "-", "/", "*"];
 
 
 /* Helper Functions */
@@ -60,7 +61,8 @@ $("button").click(function (e) {
         }
     } else {
         currOp = "";
-        if (toEval) {
+        console.log(toEval.charAt(toEval.length - 1));
+        if (toEval && !ops.includes(toEval.charAt(toEval.length - 1))) {
             switch (char) {
                 case "/":
                 case "-":
