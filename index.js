@@ -42,10 +42,10 @@ $("button").click(function (e) {
         if (!currOp){
             toEval = String(Number(toEval) * -1);
             $("#input").text(toEval);
-
         } else {
+            toEval = toEval.slice(0, toEval.length - currOp.length);
             currOp = String(Number(currOp) * -1);
-            toEval = currOp;    
+            toEval += currOp;    
             $("#input").text(currOp);
 
         }
@@ -56,10 +56,11 @@ $("button").click(function (e) {
         if (!ops.includes(toEval.slice(-1))) {
             if (!currOp) {
                 toEval = String(Number(toEval) / 100);
-                $("#input").text(toEval);    
+                $("#input").text(toEval);
             } else {
+                toEval = toEval.slice(0, toEval.length - currOp.length);
                 currOp = String(Number(currOp) / 100);
-                toEval = currOp;
+                toEval += currOp;
                 $("#input").text(currOp);
     
             }
