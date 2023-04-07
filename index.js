@@ -10,7 +10,7 @@ function animatePress(button) {
     $(button).addClass("pressed");
     setTimeout(() => {
         $(button).removeClass("pressed");
-    }, 250);
+    }, 150);
 }
 
 /* Event Listener */
@@ -25,11 +25,13 @@ $("button").click(function (e) {
             finished = 0;
         }
 
+        // if last char is "." and pressd equals ".", cannot place another "."
         // if currOp empty and input is 0, dont add else add
-        if (currOp || char != "0") {
-            currOp += char;
-            toEval += char;
-            $("#input").text(currOp);
+        if ((currOp || char != "0") && (toEval.slice(-1) != "." || char != ".")) {
+                currOp += char;
+                toEval += char;
+                $("#input").text(currOp);
+            
         }
 
     } else if (char === "AC") {
